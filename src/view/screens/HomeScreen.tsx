@@ -21,7 +21,7 @@ interface PropsPlans {
     about: string;
 }
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
     const categories = ['POPULAR', 'ORGANIC', 'INDOORS', 'SYNTHETIC'];
 
     const [categoryIndex, setCategoryIndex] = useState(0);
@@ -42,7 +42,7 @@ const HomeScreen = () => {
 
     const Card = ({ plant }: { plant: PropsPlans}) => {
         return (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate("Details", plant)}>
                 <View style={style.card}>
                     <View style={{ alignItems: 'flex-end' }}>
                         <View style={{ 
